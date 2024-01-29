@@ -9,15 +9,7 @@ fs.readFile(filepath, 'utf8', (err, data) => {
 //Geht durch den JSON Datensatz und ändert das Format
 const result = jsonData.reduce(
   (acc, entry) => {
-    if (entry.ms_played > 30000) {
-
-      if(!entry.master_metadata_track_name) {
-        entry = guessSong(entry)
-
-        if (!entry) {
-          return acc;
-        }
-      }
+    if (entry.ms_played > 30000 && entry.master_metadata_track_name) {
 
       const trackArtistKey = `${entry.master_metadata_track_name}-${entry.master_metadata_album_artist_name}`;
       const period = entry.ts.slice(0, 7);

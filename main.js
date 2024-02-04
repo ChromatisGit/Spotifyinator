@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-filepath = '';
+filepath = 'testdata/all_streams.json';
 
 fs.readFile(filepath, 'utf8', (err, data) => {
   const jsonData = JSON.parse(data);
